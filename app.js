@@ -19,19 +19,19 @@ app.use(session({
 }))
 app.use(body_parser.urlencoded({extended: true}))
 app.use(body_parser.json())
-// app.use(flash())
-// app.use(function(req, res, next) {
-//     res.locals.name = req.session.name
-//     res.locals.admin = req.session.admin
-//     res.locals.lname = req.session.lname
-//     res.locals.fname = req.session.fname
-//     res.locals.username = req.session.username
-//     res.locals.email = req.session.email
-//     res.locals.budget = req.session.budget
-//     res.locals.avatar = req.session.avatar
-//     next()
-// })
-// app.use(upload())
+app.use(flash())
+app.use(function(req, res, next) {
+    res.locals.name = req.session.name
+    res.locals.admin = req.session.admin
+    res.locals.lname = req.session.lname
+    res.locals.fname = req.session.fname
+    res.locals.username = req.session.username
+    res.locals.email = req.session.email
+    res.locals.budget = req.session.budget
+    res.locals.avatar = req.session.avatar
+    next()
+})
+app.use(upload())
 
 // DB Connection
 mongoose.connect(process.env.DB_URI).then(
