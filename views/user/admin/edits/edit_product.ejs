@@ -1,0 +1,43 @@
+<%- include("../../../partials/header") %>
+    <div class="container-fluid" style="margin-top: 50px">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">Edit User</h2>
+                <br>
+                <form action="/user/admin/edit_product/name?name=<%= name %>" method="post">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Update Product Name</label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" name="name" required value="<%= name %>">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">Update</button>
+                            </div>
+                        </div>                            
+                    </div>
+                </form>
+                <form action="/user/admin/edit_product/price?name=<%= name %>" method="post">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Update Product Price</label>
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" name="price" required value="<%= price %>">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">Update</button>
+                            </div>
+                        </div>                            
+                    </div>
+                </form>
+                <form action="/user/admin/edit_product/in_stock?name=<%= name %>" method="post">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Update Product In Stock</label>
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" name="in_stock" required value="<%= in_stock %>">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">Update</button>
+                            </div>
+                        </div>                            
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<%- include("../../../partials/footer") %>

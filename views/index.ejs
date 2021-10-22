@@ -1,0 +1,63 @@
+<%- include("./partials/header") %>
+    <div class="container-fluid" style="padding-top: 50px">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 style="padding-bottom: 30px;">Available Products In Shop</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Product Image</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Product Price</th>
+                        <th scope="col">In Stock</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <% data.forEach(product => { %>
+                            <form action="/add" method="get">
+                                <tr>
+                                    <td>
+                                        <img src="img/products/<%= product.name %>.png" alt="">
+                                    </td>
+                                    <td>
+                                        <%= product.name %>
+                                        <input type="hidden" name="prod_name" value="<%= product.name %>">
+                                    </td>
+                                    <td>
+                                        $<%= product.price %>
+                                        <input type="hidden" name="prod_price" value="<%= product.price %>">
+                                    </td>
+                                    <td>
+                                        <%= product.in_stock %>
+                                        <input type="hidden" name="prod_stock" value="<%= product.in_stock %>">
+                                    </td>
+                                    <td>
+                                        <select name="quantity" id="" class="form-select">
+                                            <% for(let i = 0; i < product.in_stock; i++ ) { %>
+                                                <option value="<%= i+1 %>"><%= i+1 %></option>
+                                            <% } %>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <% if(locals.admin) { %>
+                                            <input type="submit" value="Remove Product" class="btn btn-danger">
+                                            <input type="submit" value="Edit Product" class="btn btn-primary">
+                                        <% } else { %>
+                                            <input type="submit" value="Add To Cart" class="btn btn-primary">
+                                        <% } %>
+                                    </td>
+                                </tr>
+                            </form>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+<%- include("./partials/footer") %>

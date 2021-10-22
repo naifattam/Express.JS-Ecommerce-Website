@@ -1,0 +1,60 @@
+<%- include("../../partials/header") %>
+    <div class="container-fluid" style="padding: 0px;">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem; height: 91.5vh; border-radius: 0; top: 0;">
+                    <h2 class="card-title" style="padding: 10px;">Admin Panel</h2>
+                    <ul class="list-group list-group-flush" style="padding-top: 50px;">
+                      <a href="/user/admin/products"><li class="list-group-item"><i class="fas fa-th"></i> All Products</li></a>
+                      <a href="/user/admin/users"><li class="list-group-item"><i class="fas fa-users"></i> All Users</li></a>
+                      <a href="/user/admin/categories"><li class="list-group-item"><i class="fas fa-list-alt"></i> All Categories</li></a>
+                      <a href="/user/admin/orders"><li class="list-group-item"><i class="fas fa-cart-arrow-down"></i> All Orders</li></a>
+                      <br>
+                      <a href="/user/admin/add_product"><li class="list-group-item"><i class="fas fa-plus-square"></i> Add Product</li></a>
+                      <a href="/user/admin/add_user"><li class="list-group-item"><i class="fas fa-plus-square"></i> Add User</li></a>
+                      <a href="/user/admin/add_product"><li class="list-group-item"><i class="fas fa-plus-square"></i> Add Category</li></a>
+                      <br>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    <h2 style="padding-top: 10px">Welcome, <%= locals.admin %> </h2>
+                    <div class="col-md-4 admin-card">
+                        <div class="card bg-primary text-center">
+                            <div class="card-body">
+                                <h2 class="card-title">All Products</h2>
+                                <br>
+                                <h3 class="card-subtitle" style="color: #efefef"><%= product %></h3>
+                            </div>
+                        </div>
+                        <br>
+                        <a href="" class="btn btn-primary">View</a>
+                    </div>
+                    <div class="col-md-4 admin-card">
+                        <div class="card bg-info text-center">
+                            <div class="card-body">
+                                <h2 class="card-title">All Users</h2>
+                                <br>
+                                <h3 class="card-subtitle" style="color: #efefef"><%= user %></h3>
+                            </div>
+                        </div>
+                        <br>
+                        <a href="" class="btn btn-info text-light">View</a>
+                    </div>
+                    <div class="col-md-4 admin-card">
+                        <div class="card bg-success text-center">
+                            <div class="card-body">
+                                <h2 class="card-title">All Orders</h2>
+                                <br>
+                                <h3 class="card-subtitle" style="color: #efefef"><%= order %></h3>
+                            </div>
+                        </div>
+                        <br>
+                        <a href="" class="btn btn-success">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include("../../partials/footer") %>

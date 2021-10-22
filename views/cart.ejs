@@ -1,0 +1,43 @@
+<%- include("./partials/header") %>
+    <div class="container-fluid" style="padding-top: 50px">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 style="padding-bottom: 30px;">My Cart</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Product Image</th>
+                            <th scope="col">Product Name</th>
+                            <th scope="col">Product Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% data.forEach(product => { %>
+                            <tr>
+                                <td>
+                                    <img src="img/products/<%= product.name %>.png" alt="">
+                                </td>
+                                <td><%= product.name %></td>
+                                <td>$<%= product.price %></td>
+                                <td><%= product.quantity %></td>
+                                <td>
+                                    <a href="/remove?name=<%= product.name %>&price=<%= product.price %>" class="btn btn-danger">Remove</a>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+                <a href="/" class="btn btn-secondary">Go Back</a>
+                <% if(data.length > 0) { %>
+                    <a href="/order" class="btn btn-primary">Continue Shopping</a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+<%- include("./partials/footer") %>

@@ -1,0 +1,23 @@
+<%- include("../partials/header") %>
+    <div class="container" style="margin-top: 50px">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Sign In</h2>
+                <br>
+                <form action="/user/login" method="post">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Username</label>
+                        <input type="text" name="username" id="" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Password</label>
+                        <input type="password" name="password" id="" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="submit" value="Sign In" class="btn btn-outline-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<%- include("../partials/footer") %>

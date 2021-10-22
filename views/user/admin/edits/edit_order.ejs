@@ -1,0 +1,32 @@
+<%- include("../../../partials/header") %>
+    <div class="container-fluid" style="padding-top: 50px">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">Edit Order</h2>
+                <br>
+                <form action="/user/admin/edit_order/name?name=<%= name %>&email=<%= email %>" method="post">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Update Order Name</label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" name="name" required value="<%= name %>">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">Update</button>
+                            </div>
+                        </div>                            
+                    </div>
+                </form>
+                <form action="/user/admin/edit_order/quantity?name=<%= name %>&price=<%= price %>&quantity=<%= quantity %>&email=<%= email %>" method="post">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Update Order Quantity</label>
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" name="quantity" required value="<%= quantity %>">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">Update</button>
+                            </div>
+                        </div>                            
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<%- include("../../../partials/footer") %>

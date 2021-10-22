@@ -1,0 +1,57 @@
+<%- include("../../../partials/header") %>
+    <div class="container-fluid" style="padding: 0px;">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem; height: 91.5vh; border-radius: 0; top: 0;">
+                    <h2 class="card-title" style="padding: 10px;">Admin Panel</h2>
+                    <ul class="list-group list-group-flush" style="padding-top: 50px;">
+                        <a href="/user/admin/products"><li class="list-group-item"><i class="fas fa-th"></i> All Products</li></a>
+                        <a href="/user/admin/users"><li class="list-group-item"><i class="fas fa-users"></i> All Users</li></a>
+                        <a href="/user/admin/categories"><li class="list-group-item"><i class="fas fa-list-alt"></i> All Categories</li></a>
+                        <a href="/user/admin/orders"><li class="list-group-item"><i class="fas fa-cart-arrow-down"></i> All Orders</li></a>
+                      <br>
+                      <a href="/user/admin/add_product"><li class="list-group-item"><i class="fas fa-plus-square"></i> Add Product</li></a>
+                      <a href="/user/admin/add_user"><li class="list-group-item"><i class="fas fa-plus-square"></i> Add User</li></a>
+                      <a href="/user/admin/add_product"><li class="list-group-item"><i class="fas fa-plus-square"></i> Add Category</li></a>
+                      <br>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9 text-center" style="padding-top: 50px;">
+                <h2>All Orders</h2>
+                <br>
+                <table class="table">
+                    <thead>
+                        <tr>
+                        <th scope="col">Product Image</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Total Price</th>
+                        <th scope="col">Original Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Client Email</th>
+                        <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% data.forEach(order => { %>
+                            <tr>
+                                <th scope="row">
+                                    <img src="/img/products/<%= order.name %>.png" alt="">
+                                </th>
+                                <td><%= order.name %></td>
+                                <td>$<%= order.price %></td>
+                                <td>$<%= order.price / order.quantity %></td>
+                                <td><%= order.quantity %></td>
+                                <td><%= order.email %></td>
+                                <td>
+                                    <a href="/user/admin/edit_order?name=<%= order.name %>&email=<%= order.email %>" class="btn btn-primary">Edit</a>
+                                    <a href="/user/admin/remove_order?name=<%= order.name %>&email=<%= order.email %>" class="btn btn-danger">Remove</a>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+<%- include("../../../partials/footer") %>

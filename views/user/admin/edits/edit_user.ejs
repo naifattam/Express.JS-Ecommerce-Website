@@ -1,0 +1,76 @@
+<%- include("../../../partials/header") %>
+    <div class="container-fluid" style="margin-top: 50px">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">Edit User</h2>
+                <br>
+                <form action="/user/admin/edit_user/firstname?email=<%= email %>" method="post">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Update First Name</label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" name="firstName" required value="<%=fname%>">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">Update</button>
+                            </div>
+                        </div>                            
+                    </div>
+                </form>
+                <form action="/user/admin/edit_user/lastname?email=<%= email %>" method="post">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Update Last Name</label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" name="lastName" required value="<%=lname%>">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">Update</button>                                
+                            </div>
+                        </div>                            
+                    </div>
+                </form>
+                <form action="/user/admin/edit_user/username?email=<%= email %>" method="post">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Update Username</label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" name="username" required value="<%=username%>">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">Update</button>                                
+                            </div>
+                        </div>                            
+                    </div>
+                </form>
+                <form action="/user/admin/edit_user/email?email=<%= email %>" method="post">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Update Email Address</label>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" name="email" required value="<%=email%>">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">Update</button>                                
+                            </div>
+                        </div>                            
+                    </div>
+                </form>
+                <form action="/user/admin/edit_user/password?email=<%= email %>" method="post">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Update Password</label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" name="password" required>
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">Update</button>                                
+                            </div>
+                        </div>                            
+                    </div>
+                </form>
+                <form action="/user/admin/edit_user/avatar?email=<%= email %>&name=<%= username %>" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Update Profile Picture</label>
+                        <div class="input-group mb-3">
+                            <input type="file" name="file" id="" class="form-control" required>
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">Update</button>                                
+                            </div>
+                        </div>                            
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<%- include("../../../partials/footer") %>

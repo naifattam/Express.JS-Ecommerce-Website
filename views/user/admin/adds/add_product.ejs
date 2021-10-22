@@ -1,0 +1,31 @@
+<%- include("../../../partials/header") %>
+    <div class="container-fluid" style="margin-top: 50px">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">Add New Product</h2>
+                <br>
+                <form action="/user/admin/add_product" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Product Name</label>
+                        <input class="form-control" type="text" name="prod_name" id="" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Product Price</label>
+                        <input class="form-control" type="number" name="prod_price" id="" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Product In Stock</label>
+                        <input class="form-control" type="number" name="prod_in_stock" id="" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Product Image</label>
+                        <input class="form-control" type="file" name="prod_avatar" id="" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="submit" value="Save" class="btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<%- include("../../../partials/footer") %>
