@@ -4,8 +4,8 @@ const mongoose = require("mongoose")
 const body_parser = require("body-parser")
 const session = require("express-session")
 const morgan = require("morgan")
-// const flash = require("express-flash")
-// const upload = require("express-fileupload")
+const flash = require("express-flash")
+const upload = require("express-fileupload")
 
 // Express App
 const app = express()
@@ -19,7 +19,7 @@ app.use(session({
 }))
 app.use(body_parser.urlencoded({extended: true}))
 app.use(body_parser.json())
-// app.use(flash())
+app.use(flash())
 app.use(function(req, res, next) {
     res.locals.name = req.session.name
     res.locals.admin = req.session.admin
@@ -31,7 +31,7 @@ app.use(function(req, res, next) {
     res.locals.avatar = req.session.avatar
     next()
 })
-// app.use(upload())
+app.use(upload())
 
 // DB Connection
 mongoose.connect(process.env.DB_URI).then(
